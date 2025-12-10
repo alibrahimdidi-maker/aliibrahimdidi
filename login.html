@@ -5,57 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ލޮގިން - ޒާދް އެކަޑެމީ</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Background Section */
+        .login-wrapper-section {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            /* Subtle Pattern Background */
+            background-image: radial-gradient(#cfaa5e 0.8px, transparent 0.8px), radial-gradient(#cfaa5e 0.8px, #f8f9fa 0.8px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            padding: 40px 20px;
+        }
+
+        /* The Card */
+        .modern-login-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 450px;
+            padding: 50px 40px;
+            border-radius: 20px;
+            /* Soft, modern shadow */
+            box-shadow: 0 20px 50px rgba(11, 61, 41, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 6px solid #0b3d29; /* Primary Green Border */
+        }
+
+        /* Logo Area inside Card */
+        .login-logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+        }
+
+        /* Headings */
+        .login-title {
+            font-family: 'Faruma', 'Amiri', serif;
+            font-size: 28px;
+            color: #0b3d29;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .login-subtitle {
+            font-family: 'Faruma', serif;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 35px;
+        }
+
+        /* Form Fields */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+        .modern-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Faruma', serif;
+            transition: all 0.3s ease;
+            outline: none;
+            background: #fafafa;
+        }
+        .modern-input:focus {
+            border-color: #cfaa5e; /* Gold focus */
+            background: #fff;
+            box-shadow: 0 0 10px rgba(207, 170, 94, 0.2);
+        }
+
+        /* Login Button */
+        .btn-login-modern {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #0b3d29 0%, #004d40 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Faruma', serif;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(11, 61, 41, 0.2);
+            margin-top: 10px;
+        }
+        .btn-login-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(11, 61, 41, 0.3);
+            background: linear-gradient(135deg, #004d40 0%, #0b3d29 100%);
+        }
+
+        /* Extra Links */
+        .login-footer {
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+        .login-link {
+            color: #666;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .login-link:hover {
+            color: #cfaa5e;
+            text-decoration: underline;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 500px) {
+            .modern-login-card { padding: 30px 20px; }
+            .login-title { font-size: 24px; }
+        }
+    </style>
 </head>
 <body>
 
     <div class="top-bar">
         <div class="container top-inner">
-            <div class="contact-info"><span>📞 3000000</span></div>
-            <div><a href="index.html">އަނބުރާ ދިއުމަށް</a></div>
+            <div class="contact-info"><span>📞 9901550</span></div>
+            <a href="index.html" style="color:#fff;">ހޯމް</a>
         </div>
     </div>
 
-    <header class="main-header">
-        <div class="container header-content">
-            <a href="index.html"><img src="images/logo.png" alt="Logo" class="academy-logo"></a>
-            <h1 class="academy-title">ޒާދް އެކަޑެމީ</h1>
-        </div>
-    </header>
-
-    <section class="section" style="background-image: url('images/hero-bg.jpg'); background-size: cover; min-height: 80vh; display: flex; align-items: center; justify-content: center;">
-        <div class="container">
+    <section class="login-wrapper-section">
+        
+        <div class="modern-login-card">
+            <img src="images/logo.png" alt="Zaad Logo" class="login-logo">
             
-            <div class="login-wrapper">
-                <h2>މެމްބަރ ލޮގިން</h2>
-                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">ޕަބްލިކޭޝަންތައް ކިޔުއްވުމަށް ލޮގިން ކުރައްވާ</p>
-                
-                <form action="library.html">
-                    <div style="text-align: right;">
-                        <label style="font-size: 14px; font-weight: bold;">ޔޫސަރ ނޭމް:</label>
-                        <input type="text" placeholder="ނަން ޖައްސަވާ..." required>
-                    </div>
-                    
-                    <div style="text-align: right; margin-top: 10px;">
-                        <label style="font-size: 14px; font-weight: bold;">ޕާސްވޯޑް:</label>
-                        <input type="password" placeholder="******" required>
-                    </div>
-                    
-                    <button type="submit" class="login-btn">ވަދެވަޑައިގަތުމަށް</button>
-                    
-                    <div style="margin-top: 20px; font-size: 14px; text-align: center;">
-                        <a href="#" style="color: #0b3d29;">ޕާސްވޯޑް ހަނދާންނެތުނީ؟</a>
-                        <br><br>
-                        އެކައުންޓެއް ނެތް؟ <a href="#" style="color: #cfaa5e; font-weight: bold;">ރަޖިސްޓްރީ ވުމަށް</a>
-                    </div>
-                </form>
-            </div>
+            <h2 class="login-title">ދަރިވަރުންގެ ޕޯޓަލް</h2>
+            <p class="login-subtitle">އޮންލައިން ކްލާސްތަކަށް ވަނުމަށް ލޮގިން ކުރައްވާ</p>
 
+            <form action="#">
+                <div class="input-group">
+                    <label class="input-label">ދަރިވަރުގެ އައި.ޑީ / ޔޫސަރނޭމް</label>
+                    <input type="text" class="modern-input" placeholder="A123456" required>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">ޕާސްވޯޑް</label>
+                    <input type="password" class="modern-input" placeholder="********" required>
+                </div>
+
+                <button type="submit" class="btn-login-modern">ވަދެވަޑައިގަންނަވާ</button>
+
+                <div class="login-footer">
+                    <a href="#" class="login-link">ޕާސްވޯޑް ހަނދާންނެތުނީ؟</a>
+                    <a href="contact.html" class="login-link">އެހީ ބޭނުންތަ؟</a>
+                </div>
+            </form>
         </div>
+
     </section>
 
     <footer>
         <div class="container" style="text-align: center;">
-            <p>&copy; 2025 Zaad Academy.</p>
+            <p>&copy; 2025 Zaad Academy. All Rights Reserved.</p>
         </div>
     </footer>
 
