@@ -1,0 +1,257 @@
+/* style.css - Zaad Academy: MOBILE & FONT FIXED FINAL */
+
+/* 1. GOOGLE FONT BACKUP (For Mobile Reliability) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thaana:wght@400;500;600;700&display=swap');
+
+/* 2. LOCAL FONT SETUP */
+@font-face {
+    font-family: 'Mv Galan';
+    /* Exact filename you uploaded */
+    src: url('../fonts/Mv Galan.ttf.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Faruma';
+    src: url('../fonts/faruma.ttf') format('truetype');
+    font-weight: normal; font-style: normal; font-display: swap;
+}
+
+:root {
+    --primary-green: #0b3d29;
+    --gold: #cfaa5e;
+    --white: #ffffff;
+    --text: #333333;
+    --bg-light: #f4f7f6;
+    --footer-bg: #111;
+    --icon-red: #ff3333;
+    --btn-blue: #1565c0;
+}
+
+/* 3. GENERAL RESET */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0; padding: 0;
+    /* Font Stack: Mv Galan > Faruma > Noto Sans (Backup) > Standard */
+    font-family: 'Mv Galan', 'Faruma', 'Noto Sans Thaana', 'Amiri', Arial, sans-serif;
+    direction: rtl;
+    background-color: var(--bg-light);
+    color: var(--text);
+    line-height: 1.8; /* Better readability on mobile */
+    overflow-x: hidden;
+}
+
+.container { width: 94%; max-width: 1300px; margin: 0 auto; position: relative; }
+a { text-decoration: none; transition: 0.3s; }
+ul { list-style: none; padding: 0; margin: 0; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* FORCE FONT ON ALL ELEMENTS */
+h1, h2, h3, h4, h5, h6, p, a, span, button, input, textarea, label, div, .menu-link, .sidebar-link {
+    font-family: 'Mv Galan', 'Faruma', 'Noto Sans Thaana', 'Amiri', Arial, sans-serif !important;
+}
+
+/* English Override */
+html[dir="ltr"] body, html[dir="ltr"] h1, html[dir="ltr"] p, html[dir="ltr"] a { 
+    font-family: Arial, sans-serif !important; text-align: left; 
+}
+html[dir="ltr"] .academy-title { font-family: 'Times New Roman', serif !important; }
+
+/* 4. TOP BAR & HEADER */
+.top-bar { background-color: var(--primary-green); color: #fff; padding: 10px 0; font-size: 14px; }
+.top-inner { display: flex; justify-content: space-between; align-items: center; }
+.top-bar a { color: #fff !important; margin: 0 5px; }
+.top-login-btn { background-color: var(--gold); color: #000 !important; padding: 4px 15px; border-radius: 4px; font-weight: bold; font-size: 13px; }
+
+.main-header {
+    background-color: #0b3d29; padding: 25px 0; text-align: center;
+    border-top: 4px solid #cfaa5e; border-bottom: 4px solid #cfaa5e; color: #fff;
+    background-image: linear-gradient(30deg, #0f4a32 12%, transparent 12.5%, transparent 87%, #0f4a32 87.5%, #0f4a32), 
+                      linear-gradient(150deg, #0f4a32 12%, transparent 12.5%, transparent 87%, #0f4a32 87.5%, #0f4a32);
+    background-size: 40px 70px;
+}
+.header-content { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.academy-logo { height: 100px; width: auto; filter: brightness(0) saturate(100%) invert(81%) sepia(31%) saturate(779%) hue-rotate(355deg) brightness(88%) contrast(88%); }
+.academy-title { margin: 0; color: #cfaa5e; font-size: 42px; line-height: 1.2; }
+.academy-subtitle { margin: 0; color: #e0e0e0; font-size: 14px; letter-spacing: 4px; border-top: 1px solid rgba(207,170,94,0.5); padding-top: 10px; }
+
+/* 5. NAVIGATION */
+.main-nav { background-color: var(--primary-green); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+.top-level-menu { display: flex; justify-content: center; margin: 0; padding: 0; }
+.menu-item { position: relative; }
+.menu-link { display: block; padding: 12px 20px; color: #fff; font-weight: bold; font-size: 16px; border-bottom: 4px solid transparent; }
+.menu-link:hover { background-color: rgba(0,0,0,0.2); border-bottom: 4px solid var(--gold); }
+
+/* Dropdown (Desktop) */
+.dropdown-menu { 
+    display: none; position: absolute; top: 100%; right: 0; 
+    background-color: var(--primary-green); min-width: 280px; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); z-index: 9999; 
+    border-top: 3px solid var(--gold); padding: 10px 0; max-height: 60vh; overflow-y: auto; 
+}
+html[dir="ltr"] .dropdown-menu { right: auto; left: 0; }
+.menu-item:hover .dropdown-menu { display: block; }
+.dropdown-header { display: block; padding: 10px 20px 5px; color: var(--gold); font-size: 15px; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); pointer-events: none; }
+.dropdown-menu a { display: block; color: #fff !important; padding: 8px 25px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+html[dir="ltr"] .dropdown-menu a { text-align: left; }
+.dropdown-menu a:hover { background-color: var(--gold) !important; color: var(--primary-green) !important; padding-right: 30px; }
+
+/* 6. LAYOUT (3 COLUMNS) */
+.main-layout { 
+    display: grid; 
+    grid-template-columns: 270px 1fr 270px; 
+    gap: 25px; 
+    margin-top: 30px; 
+    align-items: start; 
+}
+
+/* Sidebar */
+.sidebar { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #eee; }
+.sidebar-title { color: var(--primary-green); font-size: 16px; border-bottom: 2px solid var(--gold); padding-bottom: 5px; margin-bottom: 15px; font-weight: bold; }
+.sidebar-link { display: block; background: #f9f9f9; padding: 10px 15px; margin-bottom: 8px; border-radius: 5px; color: #333; border-right: 4px solid var(--primary-green); transition: 0.3s; font-weight: bold; font-size: 14px; }
+.sidebar-link:hover { background: var(--primary-green); color: #fff; border-right-color: var(--gold); transform: translateX(-5px); }
+
+/* Buttons */
+.sidebar-login-btn, .sidebar-apply-btn, .sidebar-mqa-btn { display: block; width: 100%; padding: 12px; text-align: center; border-radius: 5px; font-weight: bold; margin-bottom: 15px; color: #fff !important; transition: 0.3s; font-size: 14px; }
+.sidebar-login-btn { background: #004d40; border: 2px solid var(--gold); }
+.sidebar-apply-btn { background: #c62828; border: 2px solid #b71c1c; margin-bottom: 10px; }
+.sidebar-mqa-btn { background: var(--btn-blue); border: 2px solid #0d47a1; margin-bottom: 30px; }
+.sidebar-apply-btn:hover, .sidebar-mqa-btn:hover, .sidebar-login-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+/* Widgets */
+.calendar-widget { text-align: center; border: 1px solid #ddd; border-radius: 5px; overflow: hidden; background: #fff; }
+.calendar-header { background: var(--primary-green); color: #fff; padding: 8px; font-weight: bold; font-size: 14px; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: #eee; padding: 1px; }
+.calendar-grid div { background: #fff; padding: 8px 2px; font-size: 12px; min-height: 30px; display: flex; align-items: center; justify-content: center; }
+.cal-day-header { background-color: #e0f2f1 !important; color: var(--primary-green); font-weight: bold; font-size: 11px; }
+.cal-today { background: var(--gold) !important; color: #0b3d29 !important; font-weight: bold; border: 1px solid #0b3d29; }
+.ad-box { background: #eee; height: 150px; display: flex; align-items: center; justify-content: center; color: #777; border: 1px dashed #ccc; margin-bottom: 20px; border-radius: 5px; }
+.visitor-counter { background: #222; color: var(--gold); padding: 10px; text-align: center; border-radius: 5px; font-family: monospace; font-size: 20px; letter-spacing: 3px; }
+
+/* Content & Cards */
+.slideshow-container { width: 100%; position: relative; margin-bottom: 20px; border-radius: 8px; overflow: hidden; height: 350px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.hero-small { background: linear-gradient(rgba(11, 61, 41, 0.9), rgba(11, 61, 41, 0.7)), url('../images/hero-bg.jpg'); background-size: cover; color: #fff; text-align: center; padding: 40px 20px; border-radius: 8px; margin-bottom: 20px; }
+.course-hero { background: linear-gradient(rgba(11, 61, 41, 0.95), rgba(11, 61, 41, 0.85)), url('../images/hero-bg.jpg'); background-size: cover; padding: 60px 0; color: #fff; text-align: right; }
+html[dir="ltr"] .course-hero { text-align: left; }
+.btn { background: var(--gold); color: #000; padding: 10px 30px; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 20px; text-decoration: none; border: none; cursor: pointer; }
+
+/* Cards Grid */
+.mqa-card-grid, .class-card-grid, .news-grid, .folder-grid, .resource-grid, .download-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+.mqa-card, .class-card, .news-card, .folder-card, .modern-book-card, .dl-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.02); display: flex; flex-direction: column; }
+.mqa-card:hover, .class-card:hover, .news-card:hover, .dl-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+.mqa-card-header { background: var(--primary-green); padding: 20px; color: #fff; }
+.class-card-header { background: #fdfdfd; padding: 20px; display: flex; gap: 15px; border-bottom: 1px dashed #eee; align-items: center; }
+.mnqf-badge { position: absolute; top: 15px; left: 15px; background: var(--gold); color: #0b3d29; font-weight: bold; padding: 5px 12px; border-radius: 50px; font-size: 12px; }
+html[dir="ltr"] .mnqf-badge { left: auto; right: 15px; }
+.course-title, .class-title { font-size: 20px; font-weight: bold; margin: 10px 0 0; }
+.mqa-card-body, .class-card-body { padding: 20px; flex-grow: 1; }
+.mqa-card-footer, .class-card-footer { padding: 15px 20px; background: #f9f9f9; text-align: center; }
+.apply-btn-small { display: block; width: 100%; padding: 10px; background: var(--primary-green); color: #fff; text-align: center; border-radius: 6px; font-size: 14px; font-weight: bold; transition: 0.3s; }
+.apply-btn-small:hover { background: var(--gold); color: #000; }
+.class-tag { display: inline-block; padding: 3px 10px; border-radius: 50px; font-size: 11px; font-weight: bold; margin-bottom: 10px; }
+.tag-workshop { background: #fff3cd; color: #856404; } .tag-course { background: #d4edda; color: #155724; } .tag-tech { background: #d1ecf1; color: #0c5460; }
+.class-icon { font-size: 24px; background: #e0f2f1; color: var(--primary-green); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+
+/* Ad Board */
+.modern-ad-section { width: 95%; max-width: 1200px; margin: 40px auto; position: relative; direction: rtl; }
+.ad-board { background: linear-gradient(135deg, #0b3d29 0%, #004d40 100%); border-radius: 15px; padding: 40px; display: flex; align-items: center; justify-content: space-between; color: #fff; box-shadow: 0 10px 30px rgba(11, 61, 41, 0.15); border: 1px solid #cfaa5e; position: relative; overflow: hidden; }
+.ad-board::before { content: ''; position: absolute; top: -50px; left: -50px; width: 200px; height: 200px; background: rgba(207, 170, 94, 0.1); border-radius: 50%; }
+.ad-content { z-index: 2; flex: 1; text-align: right; }
+.ad-title { font-size: 26px; font-weight: bold; color: #cfaa5e; margin: 0 0 10px 0; }
+.ad-desc { font-size: 16px; margin: 0; line-height: 1.6; color: #e0f2f1; }
+.ad-action { z-index: 2; margin-right: 30px; }
+.ad-btn-shine { background-color: #cfaa5e; color: #0b3d29 !important; padding: 15px 35px; border-radius: 50px; font-weight: bold; font-size: 16px; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(207, 170, 94, 0.4); }
+.ad-btn-shine:hover { background-color: #fff; transform: translateY(-3px) scale(1.05); }
+
+/* Download Cards */
+.dl-card { padding: 20px; flex-direction: row; align-items: center; gap: 15px; }
+.dl-icon-box { width: 50px; height: 50px; background: #e0f2f1; color: var(--primary-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+.dl-content { flex-grow: 1; }
+.dl-title { font-size: 16px; font-weight: bold; margin: 0; color: #333; }
+.dl-desc { font-size: 13px; color: #666; margin: 5px 0 0; }
+.dl-action-btn { background: var(--primary-green); color: #fff; padding: 8px 15px; border-radius: 50px; font-size: 12px; font-weight: bold; text-decoration: none; white-space: nowrap; }
+.dl-action-btn:hover { background: var(--gold); color: #000; }
+
+/* Footer */
+footer { background-color: var(--footer-bg); color: #ccc; padding: 50px 0 20px 0; border-top: 5px solid var(--gold); margin-top: 40px; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px; }
+.footer-col h3 { color: #fff; font-size: 20px; margin-bottom: 20px; border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block; }
+.footer-links a { color: #bbb; display: flex; align-items: center; }
+.footer-links a:hover { color: var(--gold); padding-right: 5px; }
+html[dir="ltr"] .footer-links a:hover { padding-right: 0; padding-left: 5px; }
+.footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; }
+.social-links { margin-top: 20px; display: flex; gap: 10px; }
+.social-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #333; color: #fff; transition: 0.3s; }
+.social-btn:hover { background: var(--gold); color: #000; }
+
+/* =========================================
+   12. MOBILE RESPONSIVE (CRITICAL FIXES)
+   ========================================= */
+@media (max-width: 900px) {
+    /* 1. Container Fix: Ensure content doesn't touch edges */
+    .container { width: 95%; padding: 0 10px; margin: auto; }
+    
+    /* 2. Top Bar & Header Stacking */
+    .top-inner { flex-direction: column; gap: 10px; text-align: center; }
+    .header-content { text-align: center; }
+    
+    /* 3. Navigation Menu: Stack Vertically */
+    .main-nav { height: auto; padding: 0; position: relative; }
+    .top-level-menu { flex-direction: column; width: 100%; }
+    .menu-item { width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .menu-link { width: 100%; padding: 15px; display: block; box-sizing: border-box; }
+    
+    /* 4. Dropdowns: Static Position (Push Content Down) */
+    .dropdown-menu {
+        position: static; /* Important: Flows in document */
+        width: 100%;
+        box-shadow: none;
+        border-top: none;
+        background-color: #082e1f; /* Darker green background */
+        display: none;
+        max-height: none; /* Allow full height */
+        overflow: visible;
+        padding-right: 0;
+    }
+    
+    /* Show dropdown on hover/tap */
+    .menu-item:hover .dropdown-menu { display: block; }
+    
+    .dropdown-menu a {
+        text-align: center;
+        padding: 12px;
+        background: rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* 5. Layout: Single Column Stack */
+    .main-layout { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 30px;
+    }
+    
+    /* Reorder: Content First (1), then Right Sidebar (Login) (2), then Left Sidebar (Calendar) (3) */
+    .middle-column { order: 1; width: 100%; }
+    .right-sidebar { order: 2; width: 100%; }
+    .left-sidebar { order: 3; width: 100%; }
+    
+    /* 6. Widget Fixes */
+    .calendar-widget { width: 100%; overflow-x: auto; } /* Allow scroll if calendar too wide */
+    .slideshow-container { height: 250px; }
+    
+    /* 7. Card & Grid Resets */
+    .mqa-card-grid, .class-card-grid, .news-grid, .folder-grid, .resource-grid, .download-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .dl-card { flex-direction: column; text-align: center; gap: 10px; }
+    .ad-board { flex-direction: column; text-align: center; padding: 30px; }
+    .ad-action { margin-right: 0; margin-top: 20px; }
+    
+    /* 8. Button Widths */
+    .sidebar-apply-btn, .sidebar-mqa-btn, .sidebar-login-btn { width: 100%; }
+}
